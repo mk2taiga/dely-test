@@ -1,2 +1,5 @@
 # CODE
 CODE_ERROR = 1
+
+# INPUT CLASS NAME
+CALCULATE_CALORIE_INPUT = "calculate_calorie_input"
