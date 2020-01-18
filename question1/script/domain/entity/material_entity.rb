@@ -1,0 +1,2 @@
+class MaterialEntity
+end

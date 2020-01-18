@@ -1,0 +1,2 @@
+class AmountEntity
+end

@@ -1,0 +1,2 @@
+module RecipeRepositoryInterface
+end
