@@ -7,7 +7,7 @@ class RemarkEntity
   @unit = nil
   @gram = nil
 
-  # unit: 単位
+  # unit: 使用単位
   # gram: グラム数
   def initialize(unit, gram)
     @unit = unit
