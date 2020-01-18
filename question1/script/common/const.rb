@@ -1,0 +1,2 @@
+# CODE
+CODE_ERROR = 1
