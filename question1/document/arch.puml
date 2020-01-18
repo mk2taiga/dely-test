@@ -1,0 +1,33 @@
+@startuml
+
+skinparam class {
+  BackgroundColor<<Adapter>> #bbffbb
+  BackgroundColor<<Usecase>> #ffbbbb
+  BackgroundColor<<Domain>> #ffffbb
+}
+
+class 外部から実行されるスクリプト <<Adapter>> {
+}
+note right : Classの表記になっているが、\n実際は外部から実行されるScriptのこと
+
+class RepositoryImpl <<Adapter>> {
+    データを取得する処理
+}
+
+class Usecase <<Usecase>> {
+  スクリプトの実行処理()
+}
+
+interface Repository <<Domain>> {
+    データを取得する処理
+}
+
+class Entity <<Domain>> {
+}
+
+外部から実行されるスクリプト .down.|> Usecase
+Repository .up.|> RepositoryImpl
+Usecase .down.|> Repository
+Usecase .down.|> Entity
+
+@enduml
