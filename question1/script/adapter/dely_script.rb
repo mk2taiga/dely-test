@@ -1,4 +1,7 @@
 require 'optparse'
+require_relative '../usecase/input/calculate_calorie_input'
+require_relative '../calculate_calorie_use_case'
+require_relative '../usecase/output/calculate_calorie_output'
 require_relative '../common/const'
 
 # スクリプトをルーティングするモジュール
@@ -15,8 +18,8 @@ params = ARGV.getopts('f:')
 case params["f"]
 when Route::CALCULATE_CALORIE then
   # 計算処理を実行する
-  # TODO: 仮の値を入れている
-  result = "成功"
+  input = CalculateCalorieInput.new
+  result = CalculateCalorieUseCase.new.execute(input)
 
 else
   puts "指定されたfunctionは存在しません。"
@@ -25,7 +28,4 @@ end
 
 # ユースケースから返却された値を出力する
 # TODO: 仮の値なのであとで変更する可能性あり
-puts result
-
-
-
+puts result.output
