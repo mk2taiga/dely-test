@@ -1,0 +1,2 @@
+class CalculateCalorieUseCase
+end
