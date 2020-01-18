@@ -1,3 +1,5 @@
+require_relative 'output_port'
+
 # カロリー計算ユースケースのアウトプットパラメータ
 class CalculateCalorieOutput
   include OutputPort
@@ -10,7 +12,7 @@ class CalculateCalorieOutput
     @calorie = calorie
   end
 
-  def result
+  def output
     @calorie
   end
 
