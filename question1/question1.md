@@ -24,5 +24,5 @@ Ruby 2.7.0
 
 1. Rubyの2.7.0をインストールする
 2. /dely-test/question1に移動する
-3. `ruby script/adapter/dely_script calculate_calorie`を実行する
+3. `ruby script/adapter/dely_script -f calculate_calorie`を実行する
 

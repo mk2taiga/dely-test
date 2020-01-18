@@ -7,11 +7,12 @@ module Route
 end
 
 # スクリプトの引数取得
-params = ARGV.getopts('function:')
+# 引数は実行したいスクリプト名を期待する
+params = ARGV.getopts('f:')
 
 # ファンクションと一致するユースケースを実行する
 # ファンクションがない場合は、エラーを返却する
-case params["function"]
+case params["f"]
 when Route::CALCULATE_CALORIE then
   # 計算処理を実行する
   # TODO: 仮の値を入れている
