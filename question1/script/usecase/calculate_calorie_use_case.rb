@@ -1,16 +1,15 @@
 require_relative 'use_case'
-require_relative '../domain/repository/recipe_repository'
+require_relative '../domain/factory/recipe_factory'
 require_relative '../common/const'
 
 # レシピのカロリーを計算するユースケース
 class CalculateCalorieUseCase
   include UseCase
-
-  @recipe_repository = nil
+  attr_accessor :recipe_factory
 
   # recipe_repository: レシピリポジトリ
-  def initialize(recipe_repository)
-    @recipe_repository = recipe_repository
+  def initialize(recipe_factory)
+    @recipe_factory = recipe_factory
   end
 
   def execute(input)
@@ -18,10 +17,8 @@ class CalculateCalorieUseCase
       raise NotImplementedError.new("#{self.class}##{__method__}の引数の型が間違っています。")
     end
 
-    # TODO カロリーを計算する
-
-    recipe_entity = @recipe_repository.get_recipe
-    CalculateCalorieOutput.new("800")
+    recipe_entity = @recipe_factory.create_recipe
+    CalculateCalorieOutput.new(recipe_entity.get_calorie)
   end
 
 end

@@ -1,22 +1,23 @@
-require_relative '../../domain/entity/nutrition_entity'
+require_relative '../../domain/entity/entity'
 require_relative '../../domain/value_object/nutrition'
 require_relative '../../domain/entity/material_entity'
 require_relative '../../domain/value_object/material_id'
 require_relative '../../domain/entity/remark_entity'
 require_relative '../../domain/value_object/unit'
-require_relative '../../domain/repository/recipe_repository'
+require_relative '../../domain/factory/recipe_factory'
 require_relative '../../domain/entity/recipe_entity'
 require_relative '../../domain/value_object/recipe_id'
 require_relative '../../domain/entity/amount_entity'
+require_relative '../../domain/entity/nutrition_entity'
 
-# レシピを取得するRepositoryの実態
-class RecipeRepositoryImpl
-  include RecipeRepository
+# レシピを取得するFactoryの実態
+class RecipeFactoryImpl
+  include RecipeFactory
 
   # <editor-fold desc="外部に後悔するメソッド">
 
   # レシピエンティティを取得する
-  def get_recipe
+  def create_recipe
     materials = [get_moyashi, get_toumyou, get_butabara, get_shio_koshou, get_shouyu, get_torigara_soup, get_shiroiri_goma, get_rayu]
     material_amounts = [get_moyashi_amount, get_toumyou_amount, get_butabara_amount, get_shio_koshou_amount, get_shouyu_amount,
                         get_torigara_soup_amount, get_shiroiri_goma_amount, get_rayu_amount]
