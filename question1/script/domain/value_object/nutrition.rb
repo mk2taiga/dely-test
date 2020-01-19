@@ -1,3 +1,5 @@
+require_relative 'value_object'
+
 # 栄養素のValueObject
 module Nutrition
   include ValueObject

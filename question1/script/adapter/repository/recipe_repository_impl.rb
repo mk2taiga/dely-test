@@ -7,6 +7,7 @@ require_relative '../../domain/value_object/unit'
 require_relative '../../domain/repository/recipe_repository'
 require_relative '../../domain/entity/recipe_entity'
 require_relative '../../domain/value_object/recipe_id'
+require_relative '../../domain/entity/amount_entity'
 
 # レシピを取得するRepositoryの実態
 class RecipeRepositoryImpl
