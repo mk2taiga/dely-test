@@ -1,5 +1,5 @@
 # レシピ情報を取得するRepositoryのインターフェース
-module RecipeRepositoryInterface
+module RecipeRepository
 
   # レシピを取得します
   def get_recipe

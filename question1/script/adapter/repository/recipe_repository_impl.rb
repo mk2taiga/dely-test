@@ -4,13 +4,13 @@ require_relative '../../domain/entity/material_entity'
 require_relative '../../domain/value_object/material_id'
 require_relative '../../domain/entity/remark_entity'
 require_relative '../../domain/value_object/unit'
-require_relative '../../domain/repository/recipe_repository_interface'
+require_relative '../../domain/repository/recipe_repository'
 require_relative '../../domain/entity/recipe_entity'
 require_relative '../../domain/value_object/recipe_id'
 
 # レシピを取得するRepositoryの実態
-class RecipeRepository
-  include RecipeRepositoryInterface
+class RecipeRepositoryImpl
+  include RecipeRepository
 
   # <editor-fold desc="外部に後悔するメソッド">
 
