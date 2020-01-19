@@ -1,7 +1,8 @@
 require 'optparse'
 require_relative '../usecase/input/calculate_calorie_input'
-require_relative '../calculate_calorie_use_case'
+require_relative '../usecase/calculate_calorie_use_case'
 require_relative '../usecase/output/calculate_calorie_output'
+require_relative 'repository/recipe_repository_impl'
 require_relative '../common/const'
 
 # スクリプトをルーティングするモジュール
@@ -18,8 +19,9 @@ params = ARGV.getopts('f:')
 case params["f"]
 when Route::CALCULATE_CALORIE then
   # 計算処理を実行する
+  repository = RecipeRepositoryImpl.new
   input = CalculateCalorieInput.new
-  result = CalculateCalorieUseCase.new.execute(input)
+  result = CalculateCalorieUseCase.new(repository).execute(input)
 
 else
   puts "指定されたfunctionは存在しません。"
