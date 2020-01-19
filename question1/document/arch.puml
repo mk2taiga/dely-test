@@ -11,7 +11,7 @@ class 外部から実行されるスクリプト <<Adapter>> {
 note right : Classの表記になっているが、\n実際は外部から実行されるScriptのこと
 
 class RepositoryImpl <<Adapter>> {
-    データを取得する処理
+    データを取得する処理()
 }
 
 class Usecase <<Usecase>> {
@@ -19,15 +19,25 @@ class Usecase <<Usecase>> {
 }
 
 interface Repository <<Domain>> {
-    データを取得する処理
+    データを取得する処理()
 }
 
 class Entity <<Domain>> {
 }
 
+interface Factory <<Domain>> {
+    データを生成する処理()
+}
+
+interface FactoryImpl <<Domain>> {
+    データを生成する処理()
+}
+
 外部から実行されるスクリプト .down.|> Usecase
 Repository .up.|> RepositoryImpl
 Usecase .down.|> Repository
+Usecase .down.|> Factory
+FactoryImpl .left.|>Factory
 Usecase .down.|> Entity
 
 @enduml
