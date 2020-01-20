@@ -28,7 +28,7 @@ class RecipeEntity
     # TODO 材料IDと一致する使用量を取得する
     # TODO 材料に使用量を渡す
     # TODO 材料からカロリーを取得する
-    self.material_entities.each do |material|
+    @material_entities.each do |material|
       material
     end
 

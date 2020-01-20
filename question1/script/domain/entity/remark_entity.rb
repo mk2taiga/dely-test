@@ -14,4 +14,14 @@ class RemarkEntity
     @gram = gram
   end
 
+  # 使用単位を返却する
+  def get_unit
+    @unit
+  end
+
+  # グラム数を返却する
+  def get_gram
+    @gram
+  end
+
 end
