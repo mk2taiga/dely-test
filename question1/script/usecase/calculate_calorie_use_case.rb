@@ -5,7 +5,8 @@ require_relative '../common/const'
 # レシピのカロリーを計算するユースケース
 class CalculateCalorieUseCase
   include UseCase
-  attr_accessor :recipe_factory
+
+  @recipe_factory = nil
 
   # recipe_repository: レシピリポジトリ
   def initialize(recipe_factory)

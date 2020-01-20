@@ -22,6 +22,17 @@ class RecipeEntity
 
   # レシピのカロリーを返却する
   def get_calorie
-  #   TODO カロリー計算処理を実装
+    recipe_calorie = 0
+
+    # TODO 材料を取得する
+    # TODO 材料IDと一致する使用量を取得する
+    # TODO 材料に使用量を渡す
+    # TODO 材料からカロリーを取得する
+    self.material_entities.each do |material|
+      material
+    end
+
+    800
   end
+
 end

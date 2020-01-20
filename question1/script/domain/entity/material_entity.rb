@@ -22,6 +22,11 @@ class MaterialEntity
 
   # amount: 使用量
   def get_calorie(amount)
-  # TODO 材料のカロリーを返却する処理を実装
+    # TODO 材料のカロリーを返却する処理を実装
+  end
+
+  # 使用量を生成する
+  def crate_amount
+    AmountEntity.new(@material_id, unit_name, amount)
   end
 end
