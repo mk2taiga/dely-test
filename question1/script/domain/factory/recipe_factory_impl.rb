@@ -18,9 +18,19 @@ class RecipeFactoryImpl
 
   # レシピエンティティを取得する
   def create_recipe
-    materials = [get_moyashi, get_toumyou, get_butabara, get_shio_koshou, get_shouyu, get_torigara_soup, get_shiroiri_goma, get_rayu]
-    material_amounts = [get_moyashi_amount, get_toumyou_amount, get_butabara_amount, get_shio_koshou_amount, get_shouyu_amount,
-                        get_torigara_soup_amount, get_shiroiri_goma_amount, get_rayu_amount]
+    moyashi = get_moyashi
+    toumyou = get_toumyou
+    butabara = get_butabara
+    shio_koshou = get_shio_koshou
+    shouyu = get_shouyu
+    torigara_soup = get_torigara_soup
+    shiroiri_goma = get_shiroiri_goma
+    rayu = get_rayu
+
+    materials = [moyashi, toumyou, butabara, shio_koshou, shouyu, torigara_soup, shiroiri_goma, rayu]
+    material_amounts = [moyashi.crate_amount(100), toumyou.crate_amount(1), butabara.crate_amount(150),
+                        shio_koshou.crate_amount(1), shouyu.crate_amount(1), torigara_soup.crate_amount(0.5),
+                        shiroiri_goma.crate_amount(1), rayu.get_calorie(0.5)]
 
     RecipeEntity.new(1, "豆苗の豚巻き", materials, material_amounts)
   end
@@ -42,14 +52,6 @@ class RecipeFactoryImpl
 
   def get_remark(unit_name, gram)
     RemarkEntity.new(unit_name, gram)
-  end
-
-  # </editor-fold>
-
-  # <editor-fold desc="材料の使用量を取得するメソッド">
-
-  def get_materia_amount(material_id, unit_name, amount)
-    AmountEntity.new(MaterialID.new(material_id), unit_name, amount)
   end
 
   # </editor-fold>
@@ -99,41 +101,6 @@ class RecipeFactoryImpl
     remark = get_remark(Unit::KOSAJI, 4.0)
     nutritions = [get_nutrition(Nutrition::CALORIE, 919.0), get_nutrition(Nutrition::SHOKUEN, 0.0)]
     get_material(8, "ラー油", nutritions)
-  end
-
-  # </editor-fold>
-
-  # <editor-fold desc="材料の使用量を取得するメソッド(材料ごとに特化した形式)">
-  def get_moyashi_amount
-    get_materia_amount(1, Unit::GRAM, 100)
-  end
-
-  def get_toumyou_amount
-    get_materia_amount(2, Unit::PACK, 1)
-  end
-
-  def get_butabara_amount
-    get_materia_amount(3, Unit::GRAM, 150)
-  end
-
-  def get_shio_koshou_amount
-    get_materia_amount(4, Unit::SHOUSHOU, 1)
-  end
-
-  def get_shouyu_amount
-    get_materia_amount(5, Unit::OOSAJI, 1)
-  end
-
-  def get_torigara_soup_amount
-    get_materia_amount(6, Unit::KOSAJI, 0.5)
-  end
-
-  def get_shiroiri_goma_amount
-    get_materia_amount(7, Unit::OOSAJI, 1)
-  end
-
-  def get_rayu_amount
-    get_materia_amount(8, Unit::KOSAJI, 0.5)
   end
 
   # </editor-fold>
