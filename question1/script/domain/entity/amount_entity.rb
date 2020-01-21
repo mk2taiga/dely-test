@@ -16,4 +16,8 @@ class AmountEntity
     @unit = unit
     @amount = amount
   end
+
+  def get_material_id
+    @material_id
+  end
 end

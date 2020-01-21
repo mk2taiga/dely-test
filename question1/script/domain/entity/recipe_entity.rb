@@ -24,15 +24,20 @@ class RecipeEntity
   def get_calorie
     recipe_calorie = 0
 
-    # TODO 材料を取得する
-    # TODO 材料IDと一致する使用量を取得する
-    # TODO 材料に使用量を渡す
-    # TODO 材料からカロリーを取得する
     @material_entities.each do |material|
-      material
+      amount = get_amount_entity(material.get_material_id)
+      recipe_calorie += material.get_calorie(amount)
     end
 
-    800
+    recipe_calorie
+  end
+
+  private
+
+  def get_amount_entity(material_id)
+    @amount_entities.each do |amount|
+      amount if amount.get_material_id == material_id
+    end
   end
 
 end

@@ -30,7 +30,7 @@ class RecipeFactoryImpl
     materials = [moyashi, toumyou, butabara, shio_koshou, shouyu, torigara_soup, shiroiri_goma, rayu]
     material_amounts = [moyashi.crate_amount(100), toumyou.crate_amount(1), butabara.crate_amount(150),
                         shio_koshou.crate_amount(1), shouyu.crate_amount(1), torigara_soup.crate_amount(0.5),
-                        shiroiri_goma.crate_amount(1), rayu.get_calorie(0.5)]
+                        shiroiri_goma.crate_amount(1), rayu.crate_amount(0.5)]
 
     RecipeEntity.new(1, "豆苗の豚巻き", materials, material_amounts)
   end

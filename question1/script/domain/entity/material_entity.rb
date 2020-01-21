@@ -20,16 +20,27 @@ class MaterialEntity
     @remark_entity = remark_entity
   end
 
+  # 最良IDを取得する
+  def get_material_id
+    @material_id
+  end
+
+  # 材料名を取得する
+  def get_material_name
+    @material_name
+  end
+
   # amount_entity: 使用量Entity
   def get_calorie(amount_entity)
     # TODO 材料のカロリーを返却する処理を実装
+    200
   end
 
   # 使用量を生成する
   # amount: 使用量
   def crate_amount(amount)
     if @remark_entity.nil?
-      raise ArgumentError.new("#{self.class}を初期化する時は、必ずremark_entityをinitializeに渡してください")
+      return AmountEntity.new(@material_id, Unit::GRAM, amount)
     end
 
     AmountEntity.new(@material_id, @remark_entity.get_unit, amount)
