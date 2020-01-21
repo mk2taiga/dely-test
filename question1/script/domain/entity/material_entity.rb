@@ -32,8 +32,10 @@ class MaterialEntity
 
   # amount_entity: 使用量Entity
   def get_calorie(amount_entity)
-    # TODO 材料のカロリーを返却する処理を実装
-    200
+    gram = amount_entity.calculate_amount(@amount_spec_entity)
+    @nutrition_entities.each do |e|
+      return e.get_nutrition_amount(gram) if e.equal?(Nutrition::CALORIE)
+    end
   end
 
   # 使用量を生成する
@@ -44,5 +46,11 @@ class MaterialEntity
     end
 
     AmountEntity.new(@material_id, @amount_spec_entity.get_unit, amount)
+  end
+
+  private
+
+  def get_calorie_nutrition
+
   end
 end

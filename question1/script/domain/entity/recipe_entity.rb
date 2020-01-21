@@ -25,19 +25,14 @@ class RecipeEntity
     recipe_calorie = 0
 
     @material_entities.each do |material|
-      amount = get_amount_entity(material.get_material_id)
-      recipe_calorie += material.get_calorie(amount)
+      @amount_entities.each do |amount|
+        recipe_calorie += material.get_calorie(amount) if amount.equal?(material.get_material_id)
+      end
     end
 
     recipe_calorie
   end
 
   private
-
-  def get_amount_entity(material_id)
-    @amount_entities.each do |amount|
-      amount if amount.get_material_id == material_id
-    end
-  end
 
 end
