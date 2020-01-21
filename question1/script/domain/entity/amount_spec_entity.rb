@@ -1,7 +1,7 @@
 require_relative 'entity'
 
 # 備考情報Entity
-class RemarkEntity
+class AmountSpecEntity
   include Entity
 
   @unit = nil
@@ -12,6 +12,16 @@ class RemarkEntity
   def initialize(unit, gram)
     @unit = unit
     @gram = gram
+  end
+
+  # 使用単位を返却する
+  def get_unit
+    @unit
+  end
+
+  # グラム数を返却する
+  def get_gram
+    @gram
   end
 
 end

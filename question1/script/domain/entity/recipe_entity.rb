@@ -22,6 +22,17 @@ class RecipeEntity
 
   # レシピのカロリーを返却する
   def get_calorie
-  #   TODO カロリー計算処理を実装
+    recipe_calorie = 0
+
+    @material_entities.map do |material|
+      @amount_entities.map do |amount|
+        recipe_calorie += material.get_calorie(amount) if amount.equal?(material.get_material_id)
+      end
+    end
+
+    recipe_calorie
   end
+
+  private
+
 end
