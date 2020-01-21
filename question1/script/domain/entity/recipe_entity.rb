@@ -33,6 +33,4 @@ class RecipeEntity
     recipe_calorie
   end
 
-  private
-
 end
