@@ -7,17 +7,17 @@ class MaterialEntity
   @material_id = nil
   @material_name = nil
   @nutrition_entities = []
-  @remark_entity = nil
+  @amount_spec_entity = nil
 
   # material_id: 材料を一意にに識別するID
   # material_name: 材料名
   # nutrition_entities: 栄養素
-  # remark_entity: 備考情報
-  def initialize(material_id, material_name, nutrition_entities, remark_entity = nil)
+  # amount_spec_entity: 備考情報
+  def initialize(material_id, material_name, nutrition_entities, amount_spec_entity = nil)
     @material_id = material_id
     @material_name = material_name
     @nutrition_entities = nutrition_entities
-    @remark_entity = remark_entity
+    @amount_spec_entity = amount_spec_entity
   end
 
   # 最良IDを取得する
@@ -39,10 +39,10 @@ class MaterialEntity
   # 使用量を生成する
   # amount: 使用量
   def crate_amount(amount)
-    if @remark_entity.nil?
+    if @amount_spec_entity.nil?
       return AmountEntity.new(@material_id, Unit::GRAM, amount)
     end
 
-    AmountEntity.new(@material_id, @remark_entity.get_unit, amount)
+    AmountEntity.new(@material_id, @amount_spec_entity.get_unit, amount)
   end
 end

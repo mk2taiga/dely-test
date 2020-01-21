@@ -1,7 +1,7 @@
 require_relative 'entity'
 
 # 備考情報Entity
-class RemarkEntity
+class AmountSpecEntity
   include Entity
 
   @unit = nil
