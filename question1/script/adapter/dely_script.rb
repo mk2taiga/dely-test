@@ -1,4 +1,3 @@
-require 'optparse'
 require_relative '../usecase/input/calculate_calorie_input'
 require_relative '../usecase/calculate_calorie_use_case'
 require_relative '../usecase/output/calculate_calorie_output'
@@ -12,11 +11,15 @@ end
 
 # スクリプトの引数取得
 # 引数は実行したいスクリプト名を期待する
-params = ARGV.getopts('f:')
+function = ARGV[0]
+# エラー文言
+err = nil
+# 結果
+result = nil
 
 # ファンクションと一致するユースケースを実行する
 # ファンクションがない場合は、エラーを返却する
-case params["f"]
+case function
 when Route::CALCULATE_CALORIE then
   # 計算処理を実行する
   factory = RecipeFactoryImpl.new
@@ -24,10 +27,16 @@ when Route::CALCULATE_CALORIE then
   result = CalculateCalorieUseCase.new(factory).execute(input)
 
 else
-  puts "指定されたfunctionは存在しません。"
+  err = "指定されたfunctionは存在しません。引数の最初には、実行したいスクリプト名を指定してください"
+end
+
+if result == nil
+  err = "何らかの理由で結果が出力されませんでした。"
+end
+
+if err != nil
   exit CODE_ERROR
 end
 
 # ユースケースから返却された値を出力する
-# TODO: 仮の値なのであとで変更する可能性あり
 puts result.output
