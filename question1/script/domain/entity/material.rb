@@ -6,8 +6,8 @@ class Material
 
   @material_id = nil
   @material_name = nil
-  @nutrition_entities = []
-  @amount_spec_entity = nil
+  @nutritions = []
+  @amount_spec = nil
 
   # material_id: 材料を一意にに識別するID
   # material_name: 材料名
@@ -16,8 +16,8 @@ class Material
   def initialize(material_id, material_name, nutrition_entities, amount_spec_entity = nil)
     @material_id = material_id
     @material_name = material_name
-    @nutrition_entities = nutrition_entities
-    @amount_spec_entity = amount_spec_entity
+    @nutritions = nutrition_entities
+    @amount_spec = amount_spec_entity
   end
 
   # 最良IDを取得する
@@ -30,14 +30,13 @@ class Material
     @material_name
   end
 
-  def get_amount_spec_entity
-    @amount_spec_entity
+  def get_amount_spec
+    @amount_spec
   end
 
   # amount_entity: 使用量Entity
-  def get_calorie(amount_entity)
-    gram = amount_entity.calculate_amount(@amount_spec_entity)
-    @nutrition_entities.map do |e|
+  def get_calorie(gram)
+    @nutritions.map do |e|
       # カロリー数を計算する
       return e.get_nutrition_amount(gram) if e.get_nutrition_name == NutritionType::CALORIE
     end
@@ -46,10 +45,10 @@ class Material
   # 使用量を生成する
   # amount: 使用量
   def crate_amount(amount)
-    if @amount_spec_entity.nil?
-      return AmountEntity.new(@material_id, amount)
+    if @amount_spec.nil?
+      return Amount.new(@material_id, amount)
     end
 
-    AmountEntity.new(@material_id, amount, @amount_spec_entity.get_unit)
+    Amount.new(@material_id, amount, @amount_spec.get_unit)
   end
 end

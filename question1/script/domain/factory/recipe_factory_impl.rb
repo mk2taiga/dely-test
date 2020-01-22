@@ -32,7 +32,7 @@ class RecipeFactoryImpl
                         shio_koshou.crate_amount(1), shouyu.crate_amount(1), torigara_soup.crate_amount(0.5),
                         shiroiri_goma.crate_amount(1), rayu.crate_amount(0.5)]
 
-    RecipeEntity.new(1, "豆苗の豚巻き", materials, material_amounts)
+    Recipe.new(1, "豆苗の豚巻き", materials, material_amounts)
   end
 
   # </editor-fold>

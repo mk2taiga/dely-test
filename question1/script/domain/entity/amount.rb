@@ -1,7 +1,7 @@
 require_relative 'entity'
 
 # 使用量情報Entity
-class AmountEntity
+class Amount
   include Entity
 
   @material_id = nil
