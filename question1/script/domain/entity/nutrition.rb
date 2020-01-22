@@ -1,14 +1,14 @@
 require_relative 'entity'
 
 # 栄養Entity
-class NutritionEntity
+class Nutrition
   include Entity
 
   @nutrition_name = nil
   @amount = nil
 
   def equal?(other)
-    other == @nutrition_name
+    other.nutrition_name == @nutrition_name
   end
 
   # nutrition_name: 栄養名
@@ -18,7 +18,13 @@ class NutritionEntity
     @amount = amount
   end
 
+  def get_nutrition_name
+    @nutrition_name
+  end
+
+  # カロリーを取得する
   def get_nutrition_amount(gram)
+    # 栄養価が100gramあたりという仕様であるため
     @amount * gram / 100
   end
 

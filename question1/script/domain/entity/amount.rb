@@ -1,7 +1,7 @@
 require_relative 'entity'
 
 # 使用量情報Entity
-class AmountEntity
+class Amount
   include Entity
 
   @material_id = nil
@@ -11,31 +11,22 @@ class AmountEntity
   # 材料を一意に識別するID
   # 材料の使用単位情報
   # 使用量
-  def initialize(material_id, unit, amount)
+  def initialize(material_id, amount, unit = Unit::GRAM)
     @material_id = material_id
-    @unit = unit
     @amount = amount
+    @unit = unit
   end
 
-
   def equal?(other)
-    other == @material_id
+    other.material_id == @material_id && other.unit == @unit
   end
 
   def get_material_id
     @material_id
   end
 
-  def get_unit
-    @unit
-  end
-
-  def get_amount
-    @amount
-  end
-
   # 使用量を算出する
-  # @param[AmountSpecEntity]
+  # @param[AmountSpecification]
   def calculate_amount(spec)
     # specがnilなら、特別な仕様がないためそのまま返却する
     return @amount if spec.nil?
