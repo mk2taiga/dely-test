@@ -2,7 +2,7 @@ require_relative '../../domain/entity/entity'
 require_relative '../../domain/value_object/nutrition'
 require_relative '../../domain/entity/material_entity'
 require_relative '../../domain/value_object/material_id'
-require_relative '../../domain/entity/amount_spec_entity'
+require_relative '../../domain/value_object/amount_specification'
 require_relative '../../domain/value_object/unit'
 require_relative '../../domain/factory/recipe_factory'
 require_relative '../../domain/entity/recipe_entity'
@@ -51,7 +51,7 @@ class RecipeFactoryImpl
   end
 
   def get_amount_spec(unit_name, gram)
-    AmountSpecEntity.new(unit_name, gram)
+    AmountSpecification.new(unit_name, gram)
   end
 
   # </editor-fold>

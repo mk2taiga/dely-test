@@ -26,7 +26,7 @@ class RecipeEntity
 
     @material_entities.map do |material|
       @amount_entities.map do |amount|
-        recipe_calorie += material.get_calorie(amount) if amount.equal?(material.get_material_id)
+        recipe_calorie += material.get_calorie(amount) if amount.get_material_id == material.get_material_id
       end
     end
 

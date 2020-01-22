@@ -30,11 +30,16 @@ class MaterialEntity
     @material_name
   end
 
+  def get_amount_spec_entity
+    @amount_spec_entity
+  end
+
   # amount_entity: 使用量Entity
   def get_calorie(amount_entity)
     gram = amount_entity.calculate_amount(@amount_spec_entity)
     @nutrition_entities.map do |e|
-      return e.get_nutrition_amount(gram) if e.equal?(Nutrition::CALORIE)
+      # カロリー数を計算する
+      return e.get_nutrition_amount(gram) if e.get_nutrition_name == Nutrition::CALORIE
     end
   end
 

@@ -1,11 +1,16 @@
-require_relative 'entity'
+require_relative '../entity/entity'
 
 # 備考情報Entity
-class AmountSpecEntity
-  include Entity
+class AmountSpecification
+  include ValueObject
 
   @unit = nil
   @gram = nil
+
+  def equal?(other)
+    other.unit == @unit && other.gram == @gram
+  end
+
 
   # unit: 使用単位
   # gram: グラム数

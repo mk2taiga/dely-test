@@ -17,25 +17,16 @@ class AmountEntity
     @unit = unit
   end
 
-
   def equal?(other)
-    other == @material_id
+    other.material_id == @material_id && other.unit == @unit
   end
 
   def get_material_id
     @material_id
   end
 
-  def get_unit
-    @unit
-  end
-
-  def get_amount
-    @amount
-  end
-
   # 使用量を算出する
-  # @param[AmountSpecEntity]
+  # @param[AmountSpecification]
   def calculate_amount(spec)
     # specがnilなら、特別な仕様がないためそのまま返却する
     return @amount if spec.nil?
