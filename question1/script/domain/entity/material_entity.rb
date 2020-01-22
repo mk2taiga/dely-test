@@ -42,9 +42,9 @@ class MaterialEntity
   # amount: 使用量
   def crate_amount(amount)
     if @amount_spec_entity.nil?
-      return AmountEntity.new(@material_id, Unit::GRAM, amount)
+      return AmountEntity.new(@material_id, amount)
     end
 
-    AmountEntity.new(@material_id, @amount_spec_entity.get_unit, amount)
+    AmountEntity.new(@material_id, amount, @amount_spec_entity.get_unit)
   end
 end

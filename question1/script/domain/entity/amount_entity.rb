@@ -11,10 +11,10 @@ class AmountEntity
   # 材料を一意に識別するID
   # 材料の使用単位情報
   # 使用量
-  def initialize(material_id, unit, amount)
+  def initialize(material_id, amount, unit = Unit::GRAM)
     @material_id = material_id
-    @unit = unit
     @amount = amount
+    @unit = unit
   end
 
 
