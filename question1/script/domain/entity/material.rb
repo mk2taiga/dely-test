@@ -1,7 +1,7 @@
 require_relative 'entity'
 
 # 材料Entity
-class MaterialEntity
+class Material
   include Entity
 
   @material_id = nil
@@ -39,7 +39,7 @@ class MaterialEntity
     gram = amount_entity.calculate_amount(@amount_spec_entity)
     @nutrition_entities.map do |e|
       # カロリー数を計算する
-      return e.get_nutrition_amount(gram) if e.get_nutrition_name == Nutrition::CALORIE
+      return e.get_nutrition_amount(gram) if e.get_nutrition_name == NutritionType::CALORIE
     end
   end
 

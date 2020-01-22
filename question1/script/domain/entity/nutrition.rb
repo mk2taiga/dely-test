@@ -1,7 +1,7 @@
 require_relative 'entity'
 
 # 栄養Entity
-class NutritionEntity
+class Nutrition
   include Entity
 
   @nutrition_name = nil

@@ -1,7 +1,7 @@
 require_relative 'value_object'
 
 # 栄養素のValueObject
-module Nutrition
+module NutritionType
   include ValueObject
 
   CALORIE = "カロリー"
