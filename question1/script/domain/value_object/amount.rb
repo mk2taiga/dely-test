@@ -4,7 +4,7 @@ require_relative 'entity'
 class Amount
   include Entity
 
-  @material_id = nil
+  @food_id = nil
   @unit = nil
   @amount = nil
 
@@ -12,17 +12,17 @@ class Amount
   # 材料の使用単位情報
   # 使用量
   def initialize(material_id, amount, unit = Unit::GRAM)
-    @material_id = material_id
+    @food_id = material_id
     @amount = amount
     @unit = unit
   end
 
   def equal?(other)
-    other.material_id == @material_id && other.unit == @unit
+    other.food_id == @food_id && other.unit == @unit
   end
 
   def get_material_id
-    @material_id
+    @food_id
   end
 
   # 使用量を算出する
