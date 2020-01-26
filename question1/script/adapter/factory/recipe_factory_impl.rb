@@ -7,8 +7,10 @@ require_relative '../../domain/value_object/unit'
 require_relative '../../domain/factory/recipe_factory'
 require_relative '../../domain/entity/recipe'
 require_relative '../../domain/value_object/recipe_id'
-require_relative '../../domain/entity/bject/amount'
+require_relative '../../domain/value_object/amount'
 require_relative '../../domain/entity/nutrition'
+require_relative '../../domain/entity/food'
+require_relative '../../domain/value_object/food_id'
 
 # レシピを取得するFactoryの実態
 class RecipeFactoryImpl

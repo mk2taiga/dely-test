@@ -1,18 +1,15 @@
-require_relative 'entity'
+require_relative 'value_object'
 
 # 使用量情報Entity
 class Amount
-  include Entity
+  include ValueObject
 
-  @food_id = nil
   @unit = nil
   @amount = nil
 
-  # 材料を一意に識別するID
   # 材料の使用単位情報
   # 使用量
-  def initialize(material_id, amount, unit = Unit::GRAM)
-    @food_id = material_id
+  def initialize(amount, unit = Unit::GRAM)
     @amount = amount
     @unit = unit
   end
