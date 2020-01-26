@@ -1,8 +1,8 @@
 require_relative '../usecase/input/calculate_calorie_input'
 require_relative '../usecase/calculate_calorie_use_case'
 require_relative '../usecase/output/calculate_calorie_output'
-require_relative '../domain/factory/recipe_factory_impl'
 require_relative '../common/const'
+require_relative 'factory/recipe_factory_impl'
 
 # スクリプトをルーティングするモジュール
 module Route
