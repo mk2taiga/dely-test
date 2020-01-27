@@ -18,6 +18,7 @@ class Nutrition
     @amount = amount
   end
 
+  # 栄養素名を返却する
   def get_nutrition_name
     @nutrition_name
   end

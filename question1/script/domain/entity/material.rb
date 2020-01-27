@@ -12,13 +12,13 @@ class Material
   # food: 食材
   # amount: 使用量
   def initialize(material_id, food, amount)
-    @food_id = material_id
+    @material_id = material_id
     @food = food
     @amount = amount
   end
 
   # カロリーを計算する
-  def get_calorie()
+  def get_calorie
     amount = @amount.calculate_amount(@food.get_spec)
     @food.get_calorie(amount)
   end

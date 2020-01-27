@@ -18,10 +18,6 @@ class Amount
     other.food_id == @food_id && other.unit == @unit
   end
 
-  def get_material_id
-    @food_id
-  end
-
   # 使用量を算出する
   # @param[AmountSpecification]
   def calculate_amount(spec)

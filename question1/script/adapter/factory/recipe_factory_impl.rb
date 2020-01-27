@@ -20,6 +20,7 @@ class RecipeFactoryImpl
 
   # レシピエンティティを取得する
   def create_recipe
+    # 食材を生成する
     moyashi = get_moyashi
     toumyou = get_toumyou
     butabara = get_butabara
@@ -29,6 +30,7 @@ class RecipeFactoryImpl
     shiroiri_goma = get_shiroiri_goma
     rayu = get_rayu
 
+    # 材料一覧を生成する
     materials = [get_material(1, moyashi, moyashi.crate_amount(100)),
                  get_material(2, toumyou, toumyou.crate_amount(1)),
                  get_material(3, butabara, butabara.crate_amount(150)),
@@ -38,6 +40,7 @@ class RecipeFactoryImpl
                  get_material(7, shiroiri_goma, shiroiri_goma.crate_amount(1)),
                  get_material(8, rayu, rayu.crate_amount(0.5))]
 
+    # レシピを生成し返却する
     Recipe.new(1, "豆苗の豚巻き", materials)
   end
 
@@ -47,7 +50,8 @@ class RecipeFactoryImpl
 
   private
 
-  # <editor-fold desc="食材の情報を取得するメソッド">
+  # <editor-fold desc="材料の情報を取得するメソッド">
+  # 材料Entityを生成する
   def get_material(material_id, food, amount)
     Material.new(MaterialID.new(material_id), food, amount)
   end
@@ -55,14 +59,17 @@ class RecipeFactoryImpl
   # </editor-fold>
 
   # <editor-fold desc="食材の情報を取得するメソッド">
+  # 食材Entityを生成する
   def get_food(food_id, food_name, nutritions, amount_specs = nil)
     Food.new(FoodID.new(food_id), food_name, nutritions, amount_specs)
   end
 
+  # 栄養素Entityを生成する
   def get_nutrition(nutrition_name, amount)
     Nutrition.new(nutrition_name, amount)
   end
 
+  # 使用量の備考値オブジェクトを生成する
   def get_amount_spec(unit_name, gram)
     AmountSpecification.new(unit_name, gram)
   end

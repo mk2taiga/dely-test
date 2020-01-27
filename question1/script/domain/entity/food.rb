@@ -8,8 +8,8 @@ class Food
   @nutritions = []
   @amount_spec = nil
 
-  # food_id: 材料を一意にに識別するID
-  # food_name: 材料名
+  # food_id: 食材を一意にに識別するID
+  # food_name: 食材名
   # nutrition_entities: 栄養素
   # amount_spec_entity: 備考情報
   def initialize(food_id, food_name, nutrition_entities, amount_spec_entity = nil)
@@ -19,6 +19,7 @@ class Food
     @amount_spec = amount_spec_entity
   end
 
+  # 使用量の備考情報を返却する
   def get_spec
     @amount_spec
   end

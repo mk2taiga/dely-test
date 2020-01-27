@@ -29,15 +29,15 @@ interface Factory <<Domain>> {
     データを生成する処理()
 }
 
-interface FactoryImpl <<Domain>> {
+interface FactoryImpl <<Adapter>> {
     データを生成する処理()
 }
 
 外部から実行されるスクリプト .down.|> Usecase
 Repository .up.|> RepositoryImpl
-Usecase .down.|> Repository
 Usecase .down.|> Factory
 FactoryImpl .left.|>Factory
+Usecase .down.|> Repository
 Usecase .down.|> Entity
 
 @enduml
