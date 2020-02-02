@@ -22,7 +22,13 @@ Ruby 2.7.0
 
 ## 実行方法
 
+### ローカルで実行する場合
 1. Rubyの2.7.0をインストールする
 2. /dely-test/question1に移動する
 3. `ruby script/adapter/dely_script.rb calculate_calorie`を実行する
 
+
+### Dockerで実行する場合
+1. docker build -t hoge .
+2. docker run --name fuga -it hoge /bin/bash
+3. `ruby script/adapter/dely_script.rb calculate_calorie`を実行する
